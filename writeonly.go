@@ -24,3 +24,11 @@ func (woc *writeOnlyCache) Get(key string) (_ interface{}, _ Result) {
 func (woc *writeOnlyCache) Size() int {
 	return woc.c.Size()
 }
+
+func (woc *writeOnlyCache) Remove(key string) {
+	woc.c.Remove(key)
+}
+
+func (woc *writeOnlyCache) Len() int {
+	return woc.c.Len()
+}

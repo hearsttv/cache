@@ -30,6 +30,9 @@ type Cache interface {
 
 	// Remove removes the provided key from the cache.
 	Remove(key string)
+
+	// method DOES NOT take into account TTL, so the result may include stale items.
+	Len() int
 }
 
 // New constructs a new LRU/TTL cache with the given max size (num objects)
@@ -80,4 +83,8 @@ func (c *cache) Size() int {
 // Remove the provided key from the cache.
 func (c *cache) Remove(key string) {
 	c.lruCache.Remove(key)
+}
+
+func (c *cache) Len() int {
+	return c.lruCache.Len()
 }
