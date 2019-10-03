@@ -19,3 +19,11 @@ func (c *noopCache) Get(key string) (value interface{}, status Result) {
 func (c *noopCache) Size() int {
 	return 0
 }
+
+func (c *noopCache) Remove(key string) {
+	return
+}
+
+func (c *noopCache) Len() int {
+	return 0
+}
